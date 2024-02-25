@@ -1,6 +1,6 @@
 # Unsupervised Learning: Student Feedback Analysis
 
-## Import
+## Install
 ```python
 pip install pandas
 ```
@@ -34,7 +34,7 @@ df_class = df_class.drop(['Timestamp', 'Email ID',
 df_class.columns = ["Name", "Branch", "Semester", "Resource Person", "Content Quality", "Effectiveness", "Expertise", "Relevance", "Overall Organization"]
 ```
 
-# Exploratory Data Analysis
+## Exploratory Data Analysis
 ```python
 # Check for null values
 df_class.isnull().sum().sum()
@@ -49,7 +49,7 @@ round(df_class["Resource Person"].value_counts(normalize=True) * 100, 2)
 round(df_class["Name"].value_counts(normalize=True) * 100, 2)
 ```
 
-# Visualisation
+## Visualisation
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -80,8 +80,100 @@ plt.show()
 sns.boxplot(y=df_class['Resource Person'], x=df_class['Overall Organization'])
 plt.show()
 
+sns.boxplot(y=df_class['Resourse Person'],x=df_class['Branch'])
+plt.show()
+
 # Boxplot of Branch vs. Content Quality
 sns.boxplot(y=df_class['Branch'], x=df_class['Content Quality'])
 plt.show()
 ```
+## Using K-means Clustering to Identify Segmentation Over Student Satisfaction
+
+### Finding the Best Value of K Using Elbow Method
+
+```python
+# Import necessary libraries
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+
+# Define input columns and X data
+input_col = ["Content Quality", "Effeciveness", "Expertise", "Relevance", "Overall Organization"]
+X = df_class[input_col].values
+
+# Initialize an empty list to store the within-cluster sum of squares
+wcss = []
+
+# Try different values of k
+for k in range(1, 11):
+    kmeans = KMeans(n_clusters=k, n_init='auto', random_state=42)
+    kmeans.fit(X)
+    wcss.append(kmeans.inertia_)  # Inertia calculates sum of square distance in each cluster
+
+# Plot the within-cluster sum of squares for different values of k
+plt.plot(range(1, 11), wcss, marker='o')
+plt.xlabel('Number of Clusters (k)')
+plt.ylabel('Within-Cluster Sum of Squares (WCSS)')
+plt.title('Elbow Method')
+plt.show()
+```
+## Using Gridsearch Method
+
+```python
+# Import necessary libraries
+from sklearn.model_selection import GridSearchCV
+
+# Define the parameter grid
+param_grid = {'n_clusters': [2, 3, 4, 5, 6]}
+
+# Create a KMeans object
+kmeans = KMeans(n_init='auto', random_state=42)
+
+# Create a GridSearchCV object
+grid_search = GridSearchCV(kmeans, param_grid, cv=5)
+
+# Perform grid search
+grid_search.fit(X)
+
+# Get the best parameters and the best score
+best_params = grid_search.best_params_
+best_score = grid_search.best_score_
+print("Best Parameters:", best_params)
+print("Best Score:", best_score)
+```
+## Implementing K-means Clustering
+
+```python
+# Perform k-means clustering
+k = 5  # Number of clusters
+kmeans = KMeans(n_clusters=k, n_init='auto', random_state=42)
+kmeans.fit(X)
+```
+
+## Extracting Labels and Cluster Centers
+```python
+# Get the cluster labels and centroids
+labels = kmeans.labels_
+centroids = kmeans.cluster_centers_
+
+# Add the cluster labels to the DataFrame
+df_class['Cluster'] = labels
+```
+
+## Visualizing the Clustering Using the First Two Features
+```python
+# Visualize the clusters
+plt.scatter(X[:, 1], X[:, 2], c=labels, cmap='viridis')
+plt.scatter(centroids[:, 1], centroids[:, 2], marker='X', s=200, c='red')
+plt.xlabel(input_col[1])
+plt.ylabel(input_col[2])
+plt.title('K-means Clustering')
+plt.show()
+```
+## Perception on Content Quality Over Clusters
+```python
+import pandas as pd
+
+pd.crosstab(columns=df_class['Cluster'], index=df_class['Content Quality'])
+```
+
 
