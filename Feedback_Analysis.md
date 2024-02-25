@@ -63,30 +63,50 @@ plt.show()
 # Boxplot of each aspect rated by students
 sns.boxplot(y=df_class['Resource Person'], x=df_class['Content Quality'])
 plt.show()
+```
+![Image Colorizer](https://drive.google.com/uc?id=1-c9fmuiNRX8Z8BU2l0tgAN4Ls2Do8J1P)
 
+```python
 # Boxplot of effectiveness
 sns.boxplot(y=df_class['Resource Person'], x=df_class['Effectiveness'])
 plt.show()
+```
+![Image](https://drive.google.com/uc?id=1_j8JfO6YgY2TXR--6VQe0ZePfjASkCLX)
 
+```python
 # Boxplot of expertise
 sns.boxplot(y=df_class['Resource Person'], x=df_class['Expertise'])
 plt.show()
-
+```
+![Image](https://drive.google.com/uc?id=1sx1f0irX77ivFnYlyMKypLJ9szZPkUbF)
+```python
 # Boxplot of relevance
 sns.boxplot(y=df_class['Resource Person'], x=df_class['Relevance'])
 plt.show()
+```
+![Image](https://drive.google.com/uc?id=103B3vSuYre13DdyM77tiBQp6L91qK4So)
 
+```python
 # Boxplot of overall organization
 sns.boxplot(y=df_class['Resource Person'], x=df_class['Overall Organization'])
 plt.show()
+```
+![Image](https://drive.google.com/uc?id=1M4s8z3o0Z7hDiCOiquDSUN17nr-6Jm71)
 
+```python
 sns.boxplot(y=df_class['Resourse Person'],x=df_class['Branch'])
 plt.show()
+```
+![Image](https://drive.google.com/uc?id=1wU2uM60piu9zJGJzxIoU2ujIKSf_OcX1)
 
+```python
 # Boxplot of Branch vs. Content Quality
 sns.boxplot(y=df_class['Branch'], x=df_class['Content Quality'])
 plt.show()
 ```
+![Image](https://drive.google.com/uc?id=1dQUUUfTP1W75cIWHZM2quF0C7p9vL2ZE)
+
+
 ## Using K-means Clustering to Identify Segmentation Over Student Satisfaction
 
 ### Finding the Best Value of K Using Elbow Method
@@ -116,6 +136,8 @@ plt.ylabel('Within-Cluster Sum of Squares (WCSS)')
 plt.title('Elbow Method')
 plt.show()
 ```
+![Image](https://drive.google.com/uc?id=1NPpV4YPjvFcUg6its20sNLCiQ2IKbbYV)
+
 ## Using Gridsearch Method
 
 ```python
@@ -169,6 +191,10 @@ plt.ylabel(input_col[2])
 plt.title('K-means Clustering')
 plt.show()
 ```
+
+![Image](https://drive.google.com/uc?id=1Pk0Yt0BTrbir7l8fPCvPvPJR27Psdg70)
+
+
 ## Perception on Content Quality Over Clusters
 ```python
 import pandas as pd
