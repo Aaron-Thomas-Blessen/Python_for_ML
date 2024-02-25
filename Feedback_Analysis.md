@@ -279,7 +279,7 @@ plt.show()
 Outliers may have a significant impact on the analysis. We will detect and handle outliers using appropriate methods such as IQR (Interquartile Range) or Z-score.
 
 ## 5. Machine Learning Model to study segmentation:
-** K-means clustering**
+**K-means clustering**
 ### Machine Learning Model: K-means Clustering for Segmentation
 
 K-means clustering is a popular unsupervised learning algorithm used for segmentation and clustering of data into distinct groups based on similarity. In this section, we will implement a K-means clustering model to study segmentation in the dataset.
