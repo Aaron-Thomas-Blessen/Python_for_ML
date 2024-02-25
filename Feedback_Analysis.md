@@ -203,7 +203,7 @@ pd.crosstab(columns=df_class['Cluster'], index=df_class['Content Quality'])
 ```
 
 
-# Analysis of Teaching Performance Metrics
+# Analysis
 
 ## Content Quality and Effectiveness
 - **Content Quality:** Most teachers are rated highly, generally above 3.5 out of 5, indicating good performance.
