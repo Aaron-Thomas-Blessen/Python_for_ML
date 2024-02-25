@@ -203,19 +203,20 @@ pd.crosstab(columns=df_class['Cluster'], index=df_class['Content Quality'])
 ```
 
 
-# Analysis
+## Analysis
 
-# 1. The problem statement: A study of the segmentation of the Intel Certification course participants over satisfaction level.
+## 1. The problem statement:
+A study of the segmentation of the Intel Certification course participants over satisfaction level.
 
-# 2. An introduction stating the relevance of feedback analysis
--Feedback analysis serves as a cornerstone in understanding and improving performance across diverse domains. Whether in education, business, or personal development, the ability to dissect feedback provides invaluable insights that drive progress and refinement.
+## 2. An introduction stating the relevance of feedback analysis
+- Feedback analysis serves as a cornerstone in understanding and improving performance across diverse domains. Whether in education, business, or personal development, the ability to dissect feedback provides invaluable insights that drive progress and refinement.
 
--In educational settings, feedback analysis empowers instructors to gauge the effectiveness of their teaching methods, identify areas of strength, and pinpoint opportunities for growth. 
+- In educational settings, feedback analysis empowers instructors to gauge the effectiveness of their teaching methods, identify areas of strength, and pinpoint opportunities for growth. 
 
--In essence, feedback analysis serves as a catalyst for growth and improvement across all facets of life.
+- In essence, feedback analysis serves as a catalyst for growth and improvement across all facets of life.
 
-#3. Methodology: explaining the exploratory and ML approaches used in the analysis with proper justifications.
-### Methodology
+## 3. Methodology: 
+explaining the exploratory and ML approaches used in the analysis with proper justifications.
 
 #### Exploratory Data Analysis (EDA)
 - **Data Cleaning:** The initial step involved loading the dataset and inspecting its structure using `df.info()` to identify any missing values or inconsistencies. Unnecessary columns like 'Timestamp' and 'Email ID' were dropped to streamline the dataset.
@@ -231,12 +232,12 @@ pd.crosstab(columns=df_class['Cluster'], index=df_class['Content Quality'])
 
 By combining exploratory data analysis with machine learning techniques like K-means clustering, this analysis aims to provide actionable insights into student feedback and satisfaction, facilitating informed decision-making and continuous improvement in educational practices.
 
-# 4.EDA
-# Exploratory Data Analysis (EDA)
+## 4.EDA
+### Exploratory Data Analysis (EDA)
 
 Exploratory Data Analysis (EDA) is an essential step in understanding the structure, patterns, and relationships within a dataset. In this section, we will explore the dataset and gain insights into its characteristics using various statistical and visual methods.
 
-## Dataset Overview
+### Dataset Overview
 ```python
 df_class.info()
 ```
@@ -274,11 +275,12 @@ sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
 plt.title('Correlation Matrix')
 plt.show()
 ````
-###Outlier Detection
+### Outlier Detection
 Outliers may have a significant impact on the analysis. We will detect and handle outliers using appropriate methods such as IQR (Interquartile Range) or Z-score.
 
-# 5. Machine Learning Model to study segmentation: K-means clustering
-## Machine Learning Model: K-means Clustering for Segmentation
+## 5. Machine Learning Model to study segmentation:
+** K-means clustering**
+### Machine Learning Model: K-means Clustering for Segmentation
 
 K-means clustering is a popular unsupervised learning algorithm used for segmentation and clustering of data into distinct groups based on similarity. In this section, we will implement a K-means clustering model to study segmentation in the dataset.
 
@@ -311,29 +313,29 @@ After fitting the K-means model to the data, we can interpret the results by exa
 ### Evaluation
 Evaluation of K-means clustering can be challenging as it is an unsupervised learning algorithm. However, metrics such as silhouette score or inertia can be used to evaluate the quality of clustering. Silhouette score measures the cohesion and separation of clusters, while inertia represents the sum of squared distances of samples to their closest cluster center.
 
-# 5.RESULTS
+## 6.RESULTS
 
-## Content Quality and Effectiveness
+### Content Quality and Effectiveness
 - **Content Quality:** Most teachers are rated highly, generally above 3.5 out of 5, indicating good performance.
 - **Effectiveness:** There is one outlier with a lower effectiveness score, suggesting a potential discrepancy between content quality and delivery.
 
-## Expertise
+### Expertise
 - Ratings for expertise are generally high, but there are outliers with lower scores, indicating areas for improvement or mismatches between expectations and teaching style.
 
-## Overall Organization
+### Overall Organization
 - Scores for overall organization are strong across the board, indicating well-prepared and structured teaching approaches.
 
-## Branch Comparison (CSE, ECE, RB, IMCA)
+### Branch Comparison (CSE, ECE, RB, IMCA)
 - Variation in median scores, with RB branch having a noticeably lower median, indicating potential issues specific to that department.
 
-## Individual Performance
+### Individual Performance
 - Some teachers show high consistency in scores across categories, while others exhibit more variability, reflecting differences in teaching methods or student engagement.
 
-## Elbow Method and K-means Clustering
+### Elbow Method and K-means Clustering
 - Elbow method suggests 3 or 4 clusters for grouping data, indicating distinct groups.
 - K-means plot shows potential clustering of individuals or branches based on evaluated metrics.
 
-## Relevance
+### Relevance
 - Relevance ratings are consistently high, indicating material taught is considered pertinent and applicable by students.
 
 **Note:** Outliers can significantly influence interpretation, and further investigation might be needed. Feedback is subjective and influenced by various factors, including student expectations and subject difficulty.
