@@ -1,2 +1,3 @@
 # Python_for_ML
-This repository contains notebooks for basic ml
+
+Use this Repository to study Machine Learning basics in 5 Days.
